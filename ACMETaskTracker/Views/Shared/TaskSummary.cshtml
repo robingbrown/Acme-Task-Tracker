@@ -1,0 +1,30 @@
+﻿@model AcmeTask
+<!-- PARTIAL VIEW for  Task-->
+<form id="@Model.TaskID" asp-page="/Cart" method="post">
+    <input type="hidden" asp-for="TaskID" />
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-faded p-1">
+            <h4>
+                @Model.DateandTime - @Model.Title
+                <span class="badge badge-pill badge-primary" style="float:right">
+                    <small>@Model.Status</small>
+                </span>
+            </h4>
+        </div>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text p-1">
+            @Model.Content
+        </span>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-success btn-sm pull-right">
+                Delete
+            </button>
+            <button type="submit" class="btn btn-warning btn-sm pull-right">
+                Done
+            </button>
+            <button type="submit" class="btn btn-danger btn-sm pull-right">
+                Update
+            </button>
+        </div>
+    </div>
+</form>
